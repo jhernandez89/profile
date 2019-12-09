@@ -2,6 +2,21 @@
   text-align: center;
 }
 
+.user-info-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.form-wrapper .form-group {
+  display: flex;
+  flex-direction: row;
+}
+
+.form-wrapper .form-group > label {
+  padding: 0 10px 0 10px;
+  /* width: 88px; */
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
