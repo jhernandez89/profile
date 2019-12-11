@@ -7,9 +7,9 @@ const DepartmentDisplay = () => {
   return (
     <Table>
       <tbody>
-        {departments.map(department => {
+        {departments.map((department, i) => {
           return (
-            <tr>
+            <tr key={i}>
               <td>{department}</td>
             </tr>
           );

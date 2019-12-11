@@ -1,7 +1,7 @@
 import React from "react";
 import UserInfo from "./InfoPanel/UserInfo";
 import Picture from "./InfoPanel/Picture.js";
-import { Form, Row, Col, Container } from "react-bootstrap";
+import { Row, Col, Container } from "react-bootstrap";
 import DepartmentDisplay from "./InfoPanel/DepartmentDisplay.js";
 import Roles from "./InfoPanel/Roles.js";
 

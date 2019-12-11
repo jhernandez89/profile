@@ -1,14 +1,16 @@
 import React from "react";
 
-const Picture = ({user}) => {
-  console.log(user)
-  return <div>
-          <img
+const Picture = ({ user }) => {
+  // console.log(user)
+  return (
+    <div>
+      <img
         className="image"
-        alt=''
+        alt=""
         src={user.picture ? user.picture : user.auth0Image}
       />
-  </div>;
+    </div>
+  );
 };
 
 export default Picture;
