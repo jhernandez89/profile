@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Table } from "react-bootstrap";
+import { deepClone } from "./deepClone.js";
 
 const mockRoles = [
   {
@@ -15,16 +16,6 @@ const mockRoles = [
     toggled: true
   }
 ];
-
-const copy = o => {
-  let output, v, key;
-  output = Array.isArray(o) ? [] : {};
-  for (key in o) {
-    v = o[key];
-    output[key] = typeof v === "object" ? copy(v) : v;
-  }
-  return output;
-};
 
 const Roles = () => {
   const [roles, setRoles] = useState(mockRoles);
@@ -42,8 +33,8 @@ const Roles = () => {
                       type="checkbox"
                       defaultChecked={role.toggled}
                       onChange={() => {
-                        setRoles(prevState => {
-                          const newState = copy(roles);
+                        setRoles(() => {
+                          const newState = deepClone(roles);
                           newState[i].toggled = !newState[i].toggled;
                           return newState;
                         });
@@ -62,36 +53,3 @@ const Roles = () => {
 };
 
 export default Roles;
-
-// {
-//   roles.map((role, i) => {
-//     return (
-//       <tr>
-//         <td>{role.name}</td>
-//         <td>
-//           <div className="custom-control custom-switch">
-//             <input
-//               type="checkbox"
-//               className="custom-control-input"
-//               id="customSwitches"
-//               checked={role.toggled}
-//               onChange={() => {
-//                 setRoles(prevRoles => {
-//                   const newRoles = prevRoles.slice();
-//                   console.log("prevRoles", newRoles[i]);
-//                   newRoles[i].toggled = !newRoles[i].toggled;
-//                   console.log("prevRoles", newRoles[i]);
-//                   return newRoles;
-//                 });
-//               }}
-//             />
-//             <label
-//               className="custom-control-label"
-//               htmlFor="customSwitches"
-//             ></label>
-//           </div>
-//         </td>
-//       </tr>
-//     );
-//   });
-// }
